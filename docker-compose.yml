@@ -1,0 +1,7 @@
+version: "3"
+services:
+  collection-instrument:
+    container_name: collextion-instrument-mock
+    image: sdcplatform/collection-instrument-mock
+    ports:
+     - "8080:8080"
