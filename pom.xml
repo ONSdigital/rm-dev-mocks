@@ -12,5 +12,6 @@
 
   <modules>
     <module>collection-instrument-mock</module>
+    <module>party-mock</module>
   </modules>
 </project>
