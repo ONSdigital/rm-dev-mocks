@@ -1,7 +1,7 @@
 version: "3"
 services:
   collection-instrument:
-    container_name: party-mock
-    image: sdcplatform/party-mock
+    container_name: party
+    image: sdcplatform/party-service-mock
     ports:
      - "8080:8080"
