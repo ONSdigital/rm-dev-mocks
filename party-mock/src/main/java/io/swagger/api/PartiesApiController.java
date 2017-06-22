@@ -25,7 +25,7 @@ public class PartiesApiController implements PartiesApi {
         Party party = new Party();
         party.setId("45297c23-763d-46a9-b4e5-c37ff5b4fbe8");
         party.setSampleUnitType("B");
-        party.setBusinessRef("45297c23-763d-46a9-b4e5-c37ff5b4fbe9");
+        party.setBusinessRef("499000011335");
 
         Attributes partyAttributes = new Attributes();
         partyAttributes.put("additionalProperty1", "Acme LTD");
@@ -33,7 +33,7 @@ public class PartiesApiController implements PartiesApi {
         partyAttributes.put("additionalProperty3", "Acme LTD");
         party.setAttributes(partyAttributes);
 
-        System.out.println("PARTY PARTY PARTY" + party.toString());
+        System.out.println(party.toString());
 
         return ResponseEntity.ok(party);
     }
