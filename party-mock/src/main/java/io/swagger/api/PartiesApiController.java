@@ -1,6 +1,7 @@
 package io.swagger.api;
 
 import io.swagger.annotations.ApiParam;
+import io.swagger.model.Attributes;
 import io.swagger.model.Party;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,25 @@ import java.util.Map;
 
 @Controller
 public class PartiesApiController implements PartiesApi {
+
+    public ResponseEntity<?> getPartyBySampleUnitTypeAndRef(@ApiParam(value = "Sample Unit Type of the Party to return",required=true ) @PathVariable("sampleUnitType") String sampleUnitType,
+                                                            @ApiParam(value = "Sample Unit Ref of the Party to return",required=true ) @PathVariable("sampleUnitRef") String sampleUnitRef) {
+
+        Party party = new Party();
+        party.setId("45297c23-763d-46a9-b4e5-c37ff5b4fbe8");
+        party.setSampleUnitType("B");
+        party.setBusinessRef("45297c23-763d-46a9-b4e5-c37ff5b4fbe9");
+
+        Attributes partyAttributes = new Attributes();
+        partyAttributes.put("additionalProperty1", "Acme LTD");
+        partyAttributes.put("additionalProperty2", "Acme LTD");
+        partyAttributes.put("additionalProperty3", "Acme LTD");
+        party.setAttributes(partyAttributes);
+
+        System.out.println("PARTY PARTY PARTY" + party.toString());
+
+        return ResponseEntity.ok(party);
+    }
 
     public ResponseEntity<?> getPartyById(@ApiParam(value = "ID of the Party to return",required=true ) @PathVariable("id") String id) {
         // do some magic!

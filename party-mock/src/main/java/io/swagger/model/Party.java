@@ -1,11 +1,9 @@
 package io.swagger.model;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.model.Attributes;
+
+import java.util.Objects;
 
 /**
  * Party
@@ -16,8 +14,8 @@ public class Party   {
   @JsonProperty("sampleUnitType")
   private String sampleUnitType = null;
 
-  @JsonProperty("reference")
-  private String reference = null;
+  @JsonProperty("businessRef")
+  private String businessRef = null;
 
   @JsonProperty("id")
   private String id = null;
@@ -44,21 +42,21 @@ public class Party   {
   }
 
   public Party reference(String reference) {
-    this.reference = reference;
+    this.businessRef = reference;
     return this;
   }
 
    /**
-   * The reference of the sample unit ( <RUREF> | <URPN> )
-   * @return reference
+   * The businessRef of the sample unit ( <RUREF> | <URPN> )
+   * @return businessRef
   **/
-  @ApiModelProperty(example = "49900001234", value = "The reference of the sample unit ( <RUREF> | <URPN> )")
-  public String getReference() {
-    return reference;
+  @ApiModelProperty(example = "49900001234", value = "The businessRef of the sample unit ( <RUREF> | <URPN> )")
+  public String getBusinessRef() {
+    return businessRef;
   }
 
-  public void setReference(String reference) {
-    this.reference = reference;
+  public void setBusinessRef(String businessRef) {
+    this.businessRef = businessRef;
   }
 
   public Party id(String id) {
@@ -108,14 +106,14 @@ public class Party   {
     }
     Party party = (Party) o;
     return Objects.equals(this.sampleUnitType, party.sampleUnitType) &&
-        Objects.equals(this.reference, party.reference) &&
+        Objects.equals(this.businessRef, party.businessRef) &&
         Objects.equals(this.id, party.id) &&
         Objects.equals(this.attributes, party.attributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sampleUnitType, reference, id, attributes);
+    return Objects.hash(sampleUnitType, businessRef, id, attributes);
   }
 
   @Override
@@ -124,7 +122,7 @@ public class Party   {
     sb.append("class Party {\n");
     
     sb.append("    sampleUnitType: ").append(toIndentedString(sampleUnitType)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    businessRef: ").append(toIndentedString(businessRef)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("}");
