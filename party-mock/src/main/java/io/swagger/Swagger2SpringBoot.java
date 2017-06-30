@@ -39,4 +39,12 @@ public class Swagger2SpringBoot implements CommandLineRunner {
 		}
 
 	}
+      public void BADmethod() {
+          String a = "a";
+          String b = "b";
+          boolean match = false;
+          if ( a == b) {
+             match = true;
+          }
+     }
 }
