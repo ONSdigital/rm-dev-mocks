@@ -14,6 +14,22 @@ import uk.gov.ons.ctp.response.party.representation.PartyDTO;
 @Api(value = "parties", description = "the parties API")
 public interface PartiesApi {
 
+    @ApiOperation(value = "Get a Party by its sampleUnitType and sampleUnitRef", notes = "Returns a single Party", response = Party.class, authorizations = {
+            @Authorization(value = "accessCode", scopes = {
+                    @AuthorizationScope(scope = "read", description = "allows reading resources")
+            })
+    }, tags={ "backstage", })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Party representation", response = Party.class),
+            @ApiResponse(code = 401, message = "Unauthorized", response = Party.class),
+            @ApiResponse(code = 403, message = "Forbidden - in the context of frontstage use, this response would indicate the Respondent does not have an ACTIVE association with this business", response = Party.class),
+            @ApiResponse(code = 404, message = "Party not found", response = Party.class) })
+    @RequestMapping(value = "/parties/type/{sampleUnitType}/ref/{sampleUnitRef}",
+            produces = { "application/json" },
+            method = RequestMethod.GET)
+    ResponseEntity<?> getPartyBySampleUnitTypeAndRef(@ApiParam(value = "Sample Unit Type of the Party to return",required=true ) @PathVariable("sampleUnitType") String sampleUnitType,
+                                                     @ApiParam(value = "Sample Unit Ref of the Party to return",required=true ) @PathVariable("sampleUnitRef") String sampleUnitRef);
+
     @ApiOperation(value = "Get a Party by its UUID", notes = "Returns a single Party", response = PartyDTO.class, authorizations = {
         @Authorization(value = "accessCode", scopes = {
             @AuthorizationScope(scope = "read", description = "allows reading resources")
